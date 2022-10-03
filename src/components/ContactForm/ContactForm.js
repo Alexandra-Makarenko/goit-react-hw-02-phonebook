@@ -1,7 +1,6 @@
+import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { nanoid } from "nanoid";
-
-
 
 export class ContactForm extends Component {
     state = {
@@ -9,7 +8,7 @@ export class ContactForm extends Component {
       name: '',
       number: ''
     }
-    
+   
 
   handleChange = evt => {
       const { name, value } = evt.target;
@@ -63,3 +62,12 @@ export class ContactForm extends Component {
     );
   }
 }
+
+ContactForm.propTypes = {
+    contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        number:PropTypes.string.isRequired,
+      }).isRequired),
+  }

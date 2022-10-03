@@ -1,7 +1,8 @@
+
 import { Component } from 'react';
-import {ContactForm} from './Phonebook/ContactForm'
-import {Filter} from './Phonebook/Filter'
-import {ContactList} from './Phonebook/ContactList'
+import {ContactForm} from './ContactForm/ContactForm'
+import {Filter} from './Filter/Filter'
+import {ContactList} from './ContactList/ContactList'
 
 
 
