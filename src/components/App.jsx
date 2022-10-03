@@ -17,10 +17,8 @@ export class App extends Component  {
   filter: ''
 }
   formSubmitHandler = data => {  
-    console.log(Object.values(this.state.contacts));
-    // let values = 
+    console.log(Object.values(this.state.contacts));  
     this.state.contacts.map(contact=> contact.name).includes(data.name)? (alert(`${data.name} is already in contacts`)) : (this.setState((prevState) => { return { contacts: [...prevState.contacts, ...[data]] } }))
-    // Object.values(this.state.contacts).includes(data.name) ? (alert(`${data.name} is already in contacts`)) : (this.setState((prevState) => { return { contacts: [...prevState.contacts, ...[data]] } }));
    
   }
  
