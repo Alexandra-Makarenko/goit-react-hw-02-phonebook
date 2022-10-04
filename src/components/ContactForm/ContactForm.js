@@ -5,7 +5,6 @@ import { Label,Input,Form } from './ContactForm.styled';
 
 export class ContactForm extends Component {
     state = {
-      id:'',
       name: '',
       number: ''
     }
@@ -13,20 +12,18 @@ export class ContactForm extends Component {
 
   handleChange = evt => {
       const { name, value } = evt.target;
-      let nameInputId = nanoid();
-      this.setState({id: nameInputId, [name]: value });
+      this.setState({ [name]: value });
      
   };
 
   handleSubmit = evt => {
     evt.preventDefault();
-      const { id} = this.state;      
-      this.props.onSubmit({id,...this.state});
-    this.reset();
+      this.props.onSubmit({id:nanoid(),...this.state});
+      this.reset();
   };
 
   reset = () => {
-    this.setState({ ...this.state });
+    this.setState({ name: '',number: '' });
   };
 
   render() {
@@ -65,10 +62,5 @@ export class ContactForm extends Component {
 }
 
 ContactForm.propTypes = {
-    contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        number:PropTypes.string.isRequired,
-      }).isRequired),
+  onSubmit: PropTypes.func.isRequired
   }

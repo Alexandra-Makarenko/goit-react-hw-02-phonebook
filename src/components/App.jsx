@@ -17,10 +17,10 @@ export class App extends Component  {
   filter: ''
 }
   formSubmitHandler = data => {  
-    console.log(Object.values(this.state.contacts));  
-    this.state.contacts.map(contact=> contact.name).includes(data.name)? (alert(`${data.name} is already in contacts`)) : (this.setState((prevState) => { return { contacts: [...prevState.contacts, ...[data]] } }))
-   
+    this.state.contacts.map(contact=> contact.name.toLowerCase()).includes(data.name.toLowerCase())? (alert(`${data.name} is already in contacts`)) : (this.setState((prevState) => { return { contacts: [...prevState.contacts, ...[data]] } }))
   }
+
+
  
    changeFilter = e => {
     this.setState({ filter: e.currentTarget.value });
